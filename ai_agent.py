@@ -19,3 +19,9 @@ def solve_insight(puzzle):
     guess=random.choice(guesses)
     correct=(guess.lower()==puzzle["answer"].lower())
     return guess,correct
+
+def solve_puzzle(puzzle):
+    if puzzle["type"]=="logic":
+        return solve_logic(puzzle)
+    else:
+        return solve_insight(puzzle)
