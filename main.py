@@ -23,14 +23,23 @@ def main():
     #AI attempt at the logical puzzles
     print("AI Logical Puzzles")
     for i in logical_puzzles:
-        answer,correct=ask_puzzle(i)
+        answer,correct=solve_puzzle(i)
         print(f"AI answers puzzle {i['id']} with '{answer}' -> {'Correct' if correct else 'Incorrect'}")
         if correct:
             ai_scores["logic"]+=1
     #AI attempt at insight puzzles
     print("AI Insight Puzzles")
     for i in insight_puzzles:
-        answer,correct=ask_puzzle(i)
+        answer,correct=solve_puzzle(i)
         print(f"AI guesses puzzle {i['id']} with '{answer}' -> {'Correct' if correct else 'Incorrect'}")
         if correct:
             ai_scores["insight"]+=1
+    #summary of results
+    print("Summary")
+    print(f"Human solved{human_scores['logic']}/{total_logic} logic puzzles.")
+    print(f"Human solved{human_scores['insight']}/{total_insight} insight puzzles.")
+    print(f"AI solved{ai_scores['logic']}/{total_logic} logic puzzles")
+    print(f"AI solved{ai_scores['insight']}/{total_insight} insight puzzles")
+
+if __name__=="__main__":
+   main()
